@@ -11,10 +11,13 @@ public class Game extends Canvas implements Runnable{
     private static Thread thread;
     private static volatile boolean working;
 
+    private static int ups = 0; //Update Per Second
+    private static int fps = 0; //Frame Per Second
+
     private Game() {
         setPreferredSize(new Dimension(WIDTH,HEIGTH));
 
-        gameFrame = new JFrame(GAMENAME);
+        gameFrame = new JFrame();
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameFrame.setResizable(false);
         gameFrame.setLayout(new BorderLayout());
@@ -28,8 +31,6 @@ public class Game extends Canvas implements Runnable{
 
         Game myGame = new Game();
         myGame.initialize();
-        Thread.sleep(1000);
-        myGame.stop();
 
     }
 
@@ -49,16 +50,49 @@ public class Game extends Canvas implements Runnable{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Thread is stopped");
+    }
+
+    private void updateGraphics(){
+        ups++;
+    }
+
+    private void drawGraphics(){
+        fps++;
     }
 
     @Override
     public void run() {
 
-        while(working) {
-            System.out.println("Thread activated");
+        //-----Image Draw Timer Variables--------------------------
+        final int NS_PER_SECOND = 1_000_000_000; //NS: Nano Seconds (1M is total of NS in one Second)
+        final byte UPS_TARGET = 60;//UPS: Updates per Second
+        final double NS_PER_UPDATE = NS_PER_SECOND / UPS_TARGET;
+
+        long updateReference = System.nanoTime();
+        long counterReference = System.nanoTime();
+
+        double timeElapsed;
+        double delta = 0;
+
+        //---------------------------------------------------------
+
+        while(working) { //Main Loop of the Game with image draw timer
+            final long startLoop = System.nanoTime();
+            timeElapsed = startLoop - updateReference;
+            updateReference = startLoop;
+            delta += timeElapsed / NS_PER_UPDATE;
+
+            while(delta>=1){
+                updateGraphics();
+                delta--;
+            }
+            drawGraphics();
+
+            if(System.nanoTime() - counterReference > NS_PER_SECOND){
+                gameFrame.setTitle(GAMENAME+" || UPS:" +ups+ " || FPS: "+fps);
+                ups = 0; fps = 0;
+                counterReference = System.nanoTime();
+            }
         }
-
-
     }
 }
