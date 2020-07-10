@@ -12,12 +12,14 @@ public final class Keyboard implements KeyListener {
     public boolean down;
     public boolean right;
     public boolean left;
+    public boolean escape;
 
     public void update(){
         up = keys[KeyEvent.VK_UP];
         down = keys[KeyEvent.VK_DOWN];
         right = keys[KeyEvent.VK_RIGHT];
         left = keys[KeyEvent.VK_LEFT];
+        escape = keys[KeyEvent.VK_ESCAPE];
     }
 
     @Override

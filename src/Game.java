@@ -14,6 +14,7 @@ public class Game extends Canvas implements Runnable{
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
     private static final String GAME_NAME = "Day-Z";
+
     private static JFrame gameFrame;
     private static Thread thread;
     private static Keyboard keyboard;
@@ -23,6 +24,8 @@ public class Game extends Canvas implements Runnable{
     private static int x = 0;
     private static int y = 0;
 
+    private static String COUNTER_UPS = "";
+    private static String COUNTER_FPS = "";
     private static int ups = 0; //Update Per Second
     private static int fps = 0; //Frame Per Second
 
@@ -39,7 +42,8 @@ public class Game extends Canvas implements Runnable{
         keyboard = new Keyboard();
         addKeyListener(keyboard);
 
-        gameFrame = new JFrame();
+        gameFrame = new JFrame(GAME_NAME);
+        gameFrame.setUndecorated(true);
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameFrame.setResizable(false);
         gameFrame.setIconImage(icon.getImage());
@@ -82,6 +86,7 @@ public class Game extends Canvas implements Runnable{
         if(keyboard.down) y++;
         if(keyboard.left) x--;
         if(keyboard.right) x++;
+        if(keyboard.escape) System.exit(0);
 
         ups++;
     }
@@ -104,6 +109,8 @@ public class Game extends Canvas implements Runnable{
         g.drawImage(image,0,0,getWidth(),getHeight(),null);
         g.setColor(Color.RED);
         g.fillOval(WIDTH/2,HEIGHT/2,32,32);
+        g.drawString(COUNTER_UPS,10,20);
+        g.drawString(COUNTER_FPS,10,35);
         g.dispose(); //Clean g
 
         bufferStrategy.show();
@@ -142,7 +149,9 @@ public class Game extends Canvas implements Runnable{
                 drawGraphics();
 
             if(System.nanoTime() - counterReference > NS_PER_SECOND){
-                gameFrame.setTitle(GAME_NAME +" || UPS:" +ups+ " || FPS: "+fps);
+
+                COUNTER_UPS = "UPS: "+ups;
+                COUNTER_FPS = "FPS: "+fps;
                 ups = 0; fps = 0;
                 counterReference = System.nanoTime();
             }
