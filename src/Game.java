@@ -7,6 +7,7 @@ import java.awt.image.*;
 
 public class Game extends Canvas implements Runnable{
 
+    private final static ImageIcon icon = new ImageIcon(Game.class.getResource("/icon/icon.png"));
     private static final long serialVersionUID = 1L;
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
@@ -28,7 +29,6 @@ public class Game extends Canvas implements Runnable{
 
     private Game() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-
         screen = new Screen(WIDTH, HEIGHT);
 
         keyboard = new Keyboard();
@@ -37,6 +37,7 @@ public class Game extends Canvas implements Runnable{
         gameFrame = new JFrame();
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameFrame.setResizable(false);
+        gameFrame.setIconImage(icon.getImage());
         gameFrame.setLayout(new BorderLayout());
         gameFrame.add(this, BorderLayout.CENTER);
         gameFrame.pack();
@@ -48,7 +49,6 @@ public class Game extends Canvas implements Runnable{
 
         Game myGame = new Game();
         myGame.initialize();
-
     }
 
     private synchronized void initialize(){
