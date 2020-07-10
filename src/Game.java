@@ -97,7 +97,10 @@ public class Game extends Canvas implements Runnable{
         System.arraycopy(screen.pixels,0,pixels,0,pixels.length); //Faster way for copy dates from one array in other
         Graphics g = bufferStrategy.getDrawGraphics();
         g.drawImage(image,0,0,getWidth(),getHeight(),null);
+        g.setColor(Color.RED);
+        g.fillOval(WIDTH/2,HEIGHT/2,32,32);
         g.dispose(); //Clean g
+
         bufferStrategy.show();
         //----------------------------------------------------------------------------
         fps++;
