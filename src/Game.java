@@ -131,7 +131,7 @@ public class Game extends Canvas implements Runnable{
                 updateGraphics();
                 delta--;
             }
-            drawGraphics();
+                drawGraphics();
 
             if(System.nanoTime() - counterReference > NS_PER_SECOND){
                 gameFrame.setTitle(GAME_NAME +" || UPS:" +ups+ " || FPS: "+fps);
