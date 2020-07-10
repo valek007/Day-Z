@@ -8,7 +8,7 @@ public final class Sprite {
     public int[] pixels;
 
     //-----Sprites Collection-----------------------
-    public static Sprite asphalt = new Sprite(32,0,0, SpritesSheet.desert);
+    public final static Sprite ASPHALT = new Sprite(32,0,0, SpritesSheet.desert);
 
     //----------------------------------------------
 
@@ -27,5 +27,9 @@ public final class Sprite {
                 pixels[j + i * side] = spritesSheet.pixels[(j + this.x) + (i + this.y) * spritesSheet.getWidth()];
             }
         }
+    }
+
+    public int getSide() {
+        return side;
     }
 }

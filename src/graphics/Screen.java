@@ -1,5 +1,7 @@
 package graphics;
 
+import map.tile.Tile;
+
 import java.util.Arrays;
 
 public final class Screen {
@@ -25,6 +27,7 @@ public final class Screen {
         Arrays.fill(pixels, 0);
     }
 
+    //---temporary (Draw Screen testing)----------
     public void draw(final int compensationX, final int compensationY){ //Repainting method
 
         for (int i = 0; i < height; i++) {
@@ -35,7 +38,19 @@ public final class Screen {
                 if(positionX < 0 || positionX >= width) continue; //Limit map output
 
                 //---temporary (Draw Screen testing)----------
-                pixels[positionX + positionY * width] = Sprite.asphalt.pixels[(j & SPRITE_MASK) + (i & SPRITE_MASK) * SPRITE_SIDE];
+                pixels[positionX + positionY * width] = Sprite.ASPHALT.pixels[(j & SPRITE_MASK) + (i & SPRITE_MASK) * SPRITE_SIDE];
+            }
+        }
+    }
+
+    public void drawTile(int compensationX, int compensationY, Tile tile){
+
+        for (int i = 0; i < tile.sprite.getSide(); i++) {
+            int positionY = i + compensationY;
+            for (int j = 0; j < tile.sprite.getSide(); j++) {
+                int positionX = j + compensationX;
+                if(positionX < 0 || positionX >= width || positionY < 0 || positionY >= height) break; //Limit map output
+                pixels[positionX + positionY * width] = tile.sprite.pixels[j + i * tile.sprite.getSide()];//Draw Tile on Screen
             }
         }
 
