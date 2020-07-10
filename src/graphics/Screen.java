@@ -32,7 +32,8 @@ public final class Screen {
             int positionY = i + compensationY;
             for (int j = 0; j < tile.sprite.getSide(); j++) {
                 int positionX = j + compensationX;
-                if(positionX < 0 || positionX >= width || positionY < 0 || positionY >= height) break; //Limit map output
+                if(positionX < -tile.sprite.getSide() || positionX >= width || positionY < 0 || positionY >= height) break; //Limit map output
+                if(positionX < 0) positionX = 0;
                 pixels[positionX + positionY * width] = tile.sprite.pixels[j + i * tile.sprite.getSide()];//Draw Tile on Screen
             }
         }

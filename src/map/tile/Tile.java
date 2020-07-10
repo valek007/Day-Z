@@ -5,6 +5,8 @@ import graphics.Sprite;
 
 public abstract class Tile {
 
+    public final static int SIDE = 32;
+
     private int x;
     private int y;
 

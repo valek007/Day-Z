@@ -38,9 +38,9 @@ public abstract class Map {
         screen.establishDifference(compensationX, compensationY);
 
         int west = compensationX >>5;//ByteShifting == /32
-        int east = (compensationX + screen.getWidth()) >>5;
+        int east = (compensationX + screen.getWidth() + Tile.SIDE) >>5;
         int north = compensationY >>5;
-        int south = (compensationY + screen.getHeight()) >>5;
+        int south = (compensationY + screen.getHeight() + Tile.SIDE) >>5;
 
         for (int i = north; i < south; i++) {
             for (int j = west; j < east; j++) {
@@ -50,6 +50,10 @@ public abstract class Map {
     }
 
     public Tile getTile(final int x, final int y){
+
+        if(x < 0 || y < 0 || x >= width || y >= height){
+            return Tile.EMPTY;
+        }
         switch (tiles[x + y * width]){
             case 0: return Tile.ASPHALT;
             case 1:
