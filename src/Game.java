@@ -1,3 +1,5 @@
+import control.Keyboard;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,6 +11,7 @@ public class Game extends Canvas implements Runnable{
     private static final String GAMENAME = "Day-Z";
     private static JFrame gameFrame;
     private static Thread thread;
+    private static Keyboard keyboard;
     private static volatile boolean working;
 
     private static int ups = 0; //Update Per Second
@@ -16,6 +19,9 @@ public class Game extends Canvas implements Runnable{
 
     private Game() {
         setPreferredSize(new Dimension(WIDTH,HEIGTH));
+
+        keyboard = new Keyboard();
+        addKeyListener(keyboard);
 
         gameFrame = new JFrame();
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,6 +59,14 @@ public class Game extends Canvas implements Runnable{
     }
 
     private void updateGraphics(){
+
+        keyboard.update();
+
+        if(keyboard.up) System.out.println("Up key pressed");
+        if(keyboard.down) System.out.println("Down key pressed");
+        if(keyboard.left) System.out.println("Left key pressed");
+        if(keyboard.right) System.out.println("Up key pressed");
+
         ups++;
     }
 
@@ -75,6 +89,8 @@ public class Game extends Canvas implements Runnable{
         double delta = 0;
 
         //---------------------------------------------------------
+
+        requestFocus(); //Focus on gameFrame
 
         while(working) { //Main Loop of the Game with image draw timer
             final long startLoop = System.nanoTime();
