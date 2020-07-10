@@ -21,8 +21,9 @@ public abstract class Tile {
         this.sprite = sprite;
     }
 
+    //---Tile draws himself------------------------
     public void draw(int x, int y, Screen screen){
-
+        screen.drawTile(x << 5, y << 5,this);
     }
 
     public boolean solid(){

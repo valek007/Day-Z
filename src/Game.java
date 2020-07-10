@@ -1,5 +1,7 @@
 import control.Keyboard;
 import graphics.Screen;
+import map.Map;
+import map.MapGenerator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +18,7 @@ public class Game extends Canvas implements Runnable{
     private static Thread thread;
     private static Keyboard keyboard;
     private static Screen screen;
+    private static Map map;
     private static volatile boolean working;
     private static int x = 0;
     private static int y = 0;
@@ -30,6 +33,8 @@ public class Game extends Canvas implements Runnable{
     private Game() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         screen = new Screen(WIDTH, HEIGHT);
+
+        map = new MapGenerator(128,128);
 
         keyboard = new Keyboard();
         addKeyListener(keyboard);
@@ -73,10 +78,10 @@ public class Game extends Canvas implements Runnable{
 
         keyboard.update();
 
-        if(keyboard.up) y++;
-        if(keyboard.down) y--;
-        if(keyboard.left) x++;
-        if(keyboard.right) x--;
+        if(keyboard.up) y--;
+        if(keyboard.down) y++;
+        if(keyboard.left) x--;
+        if(keyboard.right) x++;
 
         ups++;
     }
@@ -92,7 +97,7 @@ public class Game extends Canvas implements Runnable{
         }
 
         screen.clean();
-        screen.draw(x,y);
+        map.draw(x, y, screen);
 
         System.arraycopy(screen.pixels,0,pixels,0,pixels.length); //Faster way for copy dates from one array in other
         Graphics g = bufferStrategy.getDrawGraphics();

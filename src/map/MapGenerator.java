@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class MapGenerator extends Map{
 
-    private final Random random = new Random();
+    private final static Random RANDOM = new Random();
 
     public MapGenerator(int width, int height) {
         super(width, height);
@@ -13,7 +13,7 @@ public class MapGenerator extends Map{
     protected void createMap(){
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                tiles[j + i * width] = random.nextInt(3);
+                tiles[j + i * width] = RANDOM.nextInt(3);
             }
         }
     }
