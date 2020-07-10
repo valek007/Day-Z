@@ -13,6 +13,7 @@ public abstract class Tile {
     //-----Tiles Collection--------------------
 
     public final static Tile ASPHALT = new AsphaltTile(Sprite.ASPHALT);
+    public final static Tile EMPTY = new AsphaltTile(Sprite.EMPTY);
 
     //-----------------------------------------
 
