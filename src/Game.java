@@ -1,4 +1,5 @@
 import control.Keyboard;
+import graphics.Screen;
 
 import javax.swing.*;
 import java.awt.*;

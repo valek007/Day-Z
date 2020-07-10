@@ -8,7 +8,6 @@ public final class Sprite {
 
     public int[] pixels;
 
-
     public Sprite(final int side,final int column,final int row, final SpritesSheet spritesSheet) {
         this.side = side;
         this.x = column * side;
