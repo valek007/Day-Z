@@ -3,23 +3,33 @@ import graphics.Screen;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.*;
 
 public class Game extends Canvas implements Runnable{
 
     private static final long serialVersionUID = 1L;
     private static final int WIDTH = 800;
-    private static final int HEIGTH = 600;
-    private static final String GAMENAME = "Day-Z";
+    private static final int HEIGHT = 600;
+    private static final String GAME_NAME = "Day-Z";
     private static JFrame gameFrame;
     private static Thread thread;
     private static Keyboard keyboard;
+    private static Screen screen;
     private static volatile boolean working;
+    private static int x = 0;
+    private static int y = 0;
 
     private static int ups = 0; //Update Per Second
     private static int fps = 0; //Frame Per Second
 
+    //-----Convert image from pixels in RGB------------------------------
+    private static final BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+    private static final int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+
     private Game() {
-        setPreferredSize(new Dimension(WIDTH,HEIGTH));
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+
+        screen = new Screen(WIDTH, HEIGHT);
 
         keyboard = new Keyboard();
         addKeyListener(keyboard);
@@ -63,15 +73,33 @@ public class Game extends Canvas implements Runnable{
 
         keyboard.update();
 
-        if(keyboard.up) System.out.println("Up key pressed");
-        if(keyboard.down) System.out.println("Down key pressed");
-        if(keyboard.left) System.out.println("Left key pressed");
-        if(keyboard.right) System.out.println("Up key pressed");
+        if(keyboard.up) y++;
+        if(keyboard.down) y--;
+        if(keyboard.left) x++;
+        if(keyboard.right) x--;
 
         ups++;
     }
 
     private void drawGraphics(){
+
+        //---------BufferStrategy help the processor when he draw images--------------
+        BufferStrategy bufferStrategy = getBufferStrategy();
+        
+        if(bufferStrategy == null) {
+            createBufferStrategy(3);
+            return;
+        }
+
+        screen.clean();
+        screen.draw(x,y);
+
+        System.arraycopy(screen.pixels,0,pixels,0,pixels.length); //Faster way for copy dates from one array in other
+        Graphics g = bufferStrategy.getDrawGraphics();
+        g.drawImage(image,0,0,getWidth(),getHeight(),null);
+        g.dispose(); //Clean g
+        bufferStrategy.show();
+        //----------------------------------------------------------------------------
         fps++;
     }
 
@@ -106,7 +134,7 @@ public class Game extends Canvas implements Runnable{
             drawGraphics();
 
             if(System.nanoTime() - counterReference > NS_PER_SECOND){
-                gameFrame.setTitle(GAMENAME+" || UPS:" +ups+ " || FPS: "+fps);
+                gameFrame.setTitle(GAME_NAME +" || UPS:" +ups+ " || FPS: "+fps);
                 ups = 0; fps = 0;
                 counterReference = System.nanoTime();
             }

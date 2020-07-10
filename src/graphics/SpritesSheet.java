@@ -8,16 +8,22 @@ public class SpritesSheet {
 
     public final int[] pixels;
     private final int width;
-    private final int heigth;
+    private final int height;
 
-    public SpritesSheet(String url, int width, int heigth) {
+    //-----SpritesSheet Collection-----------------------
+    public static SpritesSheet desert = new SpritesSheet("/textures/spritesSheet.png", 320, 320);
+
+    //----------------------------------------------
+
+    public SpritesSheet(String url, int width, int height) {
         this.width = width;
-        this.heigth = heigth;
-        pixels = new int[width*heigth];
+        this.height = height;
+        pixels = new int[width * height];
 
+        BufferedImage image;
         try {
-            BufferedImage image = ImageIO.read(SpritesSheet.class.getResource(url));
-            image.getRGB(0,0,width,heigth,pixels,0,width);
+            image = ImageIO.read(SpritesSheet.class.getResource(url));
+            image.getRGB(0,0,width, height, pixels,0,width);
         } catch (IOException e) {
             e.printStackTrace();
         }

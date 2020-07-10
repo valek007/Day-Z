@@ -14,10 +14,10 @@ public final class Keyboard implements KeyListener {
     public boolean left;
 
     public void update(){
-        up = keys[KeyEvent.VK_W];
-        down = keys[KeyEvent.VK_S];
-        right = keys[KeyEvent.VK_D];
-        left = keys[KeyEvent.VK_A];
+        up = keys[KeyEvent.VK_UP];
+        down = keys[KeyEvent.VK_DOWN];
+        right = keys[KeyEvent.VK_RIGHT];
+        left = keys[KeyEvent.VK_LEFT];
     }
 
     @Override
