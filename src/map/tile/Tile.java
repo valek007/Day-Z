@@ -30,7 +30,7 @@ public class Tile {
     public final static Tile BLUE_DOUBLE_SMALL_LEFT_CORNER = new Tile(Sprite.BLUE_DOUBLE_SMALL_LEFT_CORNER);
     public final static Tile BLUE_VERTICAL_DOUBLE_BORDER = new Tile(Sprite.BLUE_VERTICAL_DOUBLE_BORDER);
     public final static Tile BLUE_DOUBLE_SMALL_RIGHT_CORNER = new Tile(Sprite.BLUE_DOUBLE_SMALL_RIGHT_CORNER);
-
+    public final static Tile BLUE_DOUBLE_SMALL_DOWN_CORNER = new Tile(Sprite.BLUE_DOUBLE_SMALL_DOWN_CORNER);
     public final static Tile RED_UP_LEFT_CORNER = new Tile(Sprite.RED_UP_LEFT_CORNER);
     public final static Tile RED_UP_BORDER = new Tile(Sprite.RED_UP_BORDER);
     public final static Tile RED_UP_RIGHT_CORNER = new Tile(Sprite.RED_UP_RIGHT_CORNER);
@@ -46,7 +46,6 @@ public class Tile {
     public final static Tile RED_DOUBLE_SMALL_LEFT_CORNER = new Tile(Sprite.RED_DOUBLE_SMALL_LEFT_CORNER);
     public final static Tile RED_UP_SMALL_LEFT_CORNER = new Tile(Sprite.RED_UP_SMALL_LEFT_CORNER);
     public final static Tile RED_DOUBLE_SMALL_RIGHT_CORNER = new Tile(Sprite.RED_DOUBLE_SMALL_RIGHT_CORNER);
-
     public final static Tile TOP_BLOCK = new Tile(Sprite.TOP_BLOCK);
     public final static Tile BACKGROUND_WALL_COLOR = new Tile(Sprite.BACKGROUND_WALL_COLOR);
     public final static Tile TOP_ZEBRA_BLOCK = new Tile(Sprite.TOP_ZEBRA_BLOCK);

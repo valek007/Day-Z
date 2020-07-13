@@ -8,6 +8,7 @@ public abstract class Map {
     protected int width;
     protected int height;
     protected int[] tiles;
+    protected  Tile[] tileCatalog;
 
     public Map(int width, int height) {
         this.width = width;
@@ -18,15 +19,15 @@ public abstract class Map {
         createMap();
     }
 
-    public Map(String url){
-        loadMap(url);
+    public Map(String route){
+        loadMap(route);
+        createMap();
     }
 
-    private void loadMap(String url) {
+    protected void loadMap(String route) {
     }
 
     protected void createMap(){
-
     }
 
     public void update(){
@@ -44,7 +45,12 @@ public abstract class Map {
 
         for (int i = north; i < south; i++) {
             for (int j = west; j < east; j++) {
-                getTile(j, i).draw(j, i, screen);
+                //getTile(j, i).draw(j, i, screen); //Random createMap
+                if(j < 0 || i < 0 || j >= width || i >= height){
+                    Tile.EMPTY.draw(j,i,screen);
+                }else{
+                    tileCatalog[j + i * width].draw(j,i,screen);
+                }
             }
         }
     }

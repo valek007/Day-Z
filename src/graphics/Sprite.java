@@ -25,7 +25,7 @@ public class Sprite {
     public final static Sprite BLUE_DOUBLE_SMALL_LEFT_CORNER = new Sprite(32,4,0,SpritesSheet.office);
     public final static Sprite BLUE_VERTICAL_DOUBLE_BORDER = new Sprite(32,4,1,SpritesSheet.office);
     public final static Sprite BLUE_DOUBLE_SMALL_RIGHT_CORNER = new Sprite(32,4,2,SpritesSheet.office);
-
+    public final static Sprite BLUE_DOUBLE_SMALL_DOWN_CORNER = new Sprite(32,4,3,SpritesSheet.office);
     public final static Sprite RED_UP_LEFT_CORNER = new Sprite(32,5,0,SpritesSheet.office);
     public final static Sprite RED_UP_BORDER = new Sprite(32,6,0,SpritesSheet.office);
     public final static Sprite RED_UP_RIGHT_CORNER = new Sprite(32,7,0,SpritesSheet.office);
@@ -43,13 +43,13 @@ public class Sprite {
     public final static Sprite RED_DOUBLE_SMALL_RIGHT_CORNER = new Sprite(32,9,2,SpritesSheet.office);
 
 
-    public final static Sprite TOP_BLOCK = new Sprite(32,1,0,SpritesSheet.office);
-    public final static Sprite BACKGROUND_WALL_COLOR = new Sprite(32,1,0,SpritesSheet.office);
-    public final static Sprite TOP_ZEBRA_BLOCK = new Sprite(32,1,0,SpritesSheet.office);
-    public final static Sprite FIRST_COMPUTER_BLOCK = new Sprite(32,1,0,SpritesSheet.office);
-    public final static Sprite SECOND_COMPUTER_BLOCK = new Sprite(32,1,0,SpritesSheet.office);
-    public final static Sprite ZEBRA_BLOCK = new Sprite(32,1,0,SpritesSheet.office);
-    public final static Sprite WALL_BLOCK = new Sprite(32,1,0,SpritesSheet.office);
+    public final static Sprite TOP_BLOCK = new Sprite(32,0,3,SpritesSheet.office);
+    public final static Sprite BACKGROUND_WALL_COLOR = new Sprite(32,1,3,SpritesSheet.office);
+    public final static Sprite TOP_ZEBRA_BLOCK = new Sprite(32,2,3,SpritesSheet.office);
+    public final static Sprite FIRST_COMPUTER_BLOCK = new Sprite(32,0,4,SpritesSheet.office);
+    public final static Sprite SECOND_COMPUTER_BLOCK = new Sprite(32,1,4,SpritesSheet.office);
+    public final static Sprite ZEBRA_BLOCK = new Sprite(32,2,4,SpritesSheet.office);
+    public final static Sprite WALL_BLOCK = new Sprite(32,0,5,SpritesSheet.office);
 
     //----------------------------------------------
 

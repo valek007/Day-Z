@@ -1,7 +1,7 @@
 import control.Keyboard;
 import graphics.Screen;
 import map.Map;
-import map.MapGenerator;
+import map.MapLoader;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,7 +37,8 @@ public class Game extends Canvas implements Runnable{
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         screen = new Screen(WIDTH, HEIGHT);
 
-        map = new MapGenerator(128,128);
+        //map = new MapGenerator(128,128);
+        map = new MapLoader("/maps/officeMap.png");
 
         keyboard = new Keyboard();
         addKeyListener(keyboard);
