@@ -13,7 +13,7 @@ public class MapGenerator extends Map{
     protected void createMap(){
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                tiles[j + i * width] = RANDOM.nextInt(3);
+                tiles[j + i * width] = RANDOM.nextInt(36);
             }
         }
     }

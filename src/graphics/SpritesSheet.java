@@ -11,7 +11,7 @@ public class SpritesSheet {
     private final int height;
 
     //-----SpritesSheet Collection-----------------------
-    public static SpritesSheet desert = new SpritesSheet("/textures/spritesSheet.png", 320, 320);
+    public static SpritesSheet office = new SpritesSheet("/textures/spritesSheet.png", 320, 320);
 
     //----------------------------------------------
 

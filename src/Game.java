@@ -54,7 +54,7 @@ public class Game extends Canvas implements Runnable{
         gameFrame.setVisible(true);
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
 
         Game myGame = new Game();
         myGame.initialize();
