@@ -102,7 +102,6 @@ public class Game extends Canvas implements Runnable{
             return;
         }
 
-        screen.clean();
         map.draw(x, y, screen);
 
         System.arraycopy(screen.pixels,0,pixels,0,pixels.length); //Faster way for copy dates from one array in other

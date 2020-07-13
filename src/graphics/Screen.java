@@ -2,8 +2,6 @@ package graphics;
 
 import map.tile.Tile;
 
-import java.util.Arrays;
-
 public final class Screen {
 
     public final int[] pixels;
@@ -17,10 +15,6 @@ public final class Screen {
         this.height = height;
 
         pixels = new int[width * height];
-    }
-
-    public void clean(){ //Leave the black screen
-        Arrays.fill(pixels, 0);
     }
 
     public void drawTile(int compensationX, int compensationY, Tile tile){
