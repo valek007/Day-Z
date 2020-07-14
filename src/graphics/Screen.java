@@ -58,7 +58,9 @@ public final class Screen {
                 int positionX = j + compensationX;
                 if(positionX < -player.getSprite().getSide() || positionX >= width || positionY < 0 || positionY >= height) break; //Limit map output
                 if(positionX < 0) positionX = 0;
-                pixels[positionX + positionY * width] = player.getSprite().pixels[j + i * player.getSprite().getSide()];//Draw Player on Screen
+                //pixels[positionX + positionY * width] = player.getSprite().pixels[j + i * player.getSprite().getSide()];//Draw Player on Screen
+                int colorPixelPlayer = player.getSprite().pixels[j + i * player.getSprite().getSide()];
+                if(colorPixelPlayer != 0xffff00ff) pixels[positionX + positionY * width] = colorPixelPlayer;
             }
         }
     

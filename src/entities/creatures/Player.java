@@ -29,7 +29,15 @@ public class Player extends Creature{
         if(keyboard.down) moveY++;
         if(keyboard.left) moveX--;
         if(keyboard.right) moveX++;
-        if(moveX != 0 || moveY != 0) move(moveX,moveY);
+        if(moveX != 0 || moveY != 0){
+            if(direction=='n') sprite = Sprite.RAMBO_UP_1;
+            if(direction=='s') sprite = Sprite.RAMBO_DOWN_1;
+            if(direction=='e') sprite = Sprite.RAMBO_RIGHT_1;
+            if(direction=='w') sprite = Sprite.RAMBO_LEFT_1;
+
+            move(moveX,moveY);
+
+        }
     }
 
     public void draw(Screen screen){
