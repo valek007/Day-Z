@@ -1,4 +1,5 @@
 import control.Keyboard;
+import entities.creatures.Player;
 import graphics.Screen;
 import map.Map;
 import map.MapLoader;
@@ -20,9 +21,8 @@ public class Game extends Canvas implements Runnable{
     private static Keyboard keyboard;
     private static Screen screen;
     private static Map map;
+    private static Player player;
     private static volatile boolean working;
-    private static int x = 0;
-    private static int y = 0;
 
     private static String COUNTER_UPS = "";
     private static String COUNTER_FPS = "";
@@ -37,11 +37,11 @@ public class Game extends Canvas implements Runnable{
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
         screen = new Screen(WIDTH, HEIGHT);
 
-        //map = new MapGenerator(128,128);
-        map = new MapLoader("/maps/officeMap.png");
-
         keyboard = new Keyboard();
         addKeyListener(keyboard);
+
+        map = new MapLoader("/maps/officeMap.png");
+        player = new Player(keyboard);
 
         gameFrame = new JFrame(GAME_NAME);
         gameFrame.setUndecorated(true);
@@ -82,11 +82,8 @@ public class Game extends Canvas implements Runnable{
     private void updateGraphics(){
 
         keyboard.update();
+        player.update();
 
-        if(keyboard.up) y--;
-        if(keyboard.down) y++;
-        if(keyboard.left) x--;
-        if(keyboard.right) x++;
         if(keyboard.escape) System.exit(0);
 
         ups++;
@@ -102,7 +99,7 @@ public class Game extends Canvas implements Runnable{
             return;
         }
 
-        map.draw(x, y, screen);
+        map.draw(player.getX(), player.getY(), screen);
 
         System.arraycopy(screen.pixels,0,pixels,0,pixels.length); //Faster way for copy dates from one array in other
         Graphics g = bufferStrategy.getDrawGraphics();
@@ -111,6 +108,8 @@ public class Game extends Canvas implements Runnable{
         g.fillOval(WIDTH/2,HEIGHT/2,32,32);
         g.drawString(COUNTER_UPS,10,20);
         g.drawString(COUNTER_FPS,10,35);
+        g.drawString("x: "+player.getX(), 10,50);
+        g.drawString("y: "+player.getY(), 10,65);
         g.dispose(); //Clean g
 
         bufferStrategy.show();

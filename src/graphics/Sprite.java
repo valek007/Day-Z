@@ -38,6 +38,8 @@ public class Sprite {
     public final static Sprite RED_LEFT_DOOR = new Sprite(32,8,0,0,SpritesSheet.office);
     public final static Sprite RED_RIGHT_DOOR = new Sprite(32,8,1,0,SpritesSheet.office);
     public final static Sprite RED_SPECIAL_DOOR = new Sprite(32,8,2,0,SpritesSheet.office);
+    public final static Sprite RED_SPECIAL_DOOR_RIGHT = new Sprite(32,8,2,4,SpritesSheet.office);
+    public final static Sprite RED_SPECIAL_DOOR_LEFT = new Sprite(32,8,2,4,SpritesSheet.office);
     public final static Sprite RED_DOUBLE_SMALL_LEFT_CORNER = new Sprite(32,9,0,0,SpritesSheet.office);
     public final static Sprite RED_UP_SMALL_LEFT_CORNER = new Sprite(32,9,1,0,SpritesSheet.office);
     public final static Sprite RED_DOUBLE_SMALL_RIGHT_CORNER = new Sprite(32,9,2,0,SpritesSheet.office);

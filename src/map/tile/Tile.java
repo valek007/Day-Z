@@ -43,6 +43,8 @@ public class Tile {
     public final static Tile RED_LEFT_DOOR = new Tile(Sprite.RED_LEFT_DOOR);
     public final static Tile RED_RIGHT_DOOR = new Tile(Sprite.RED_RIGHT_DOOR);
     public final static Tile RED_SPECIAL_DOOR = new Tile(Sprite.RED_SPECIAL_DOOR);
+    public final static Tile RED_SPECIAL_DOOR_RIGHT = new Tile(Sprite.RED_SPECIAL_DOOR_RIGHT);
+    public final static Tile RED_SPECIAL_DOOR_LEFT = new Tile(Sprite.RED_SPECIAL_DOOR_LEFT);
     public final static Tile RED_DOUBLE_SMALL_LEFT_CORNER = new Tile(Sprite.RED_DOUBLE_SMALL_LEFT_CORNER);
     public final static Tile RED_UP_SMALL_LEFT_CORNER = new Tile(Sprite.RED_UP_SMALL_LEFT_CORNER);
     public final static Tile RED_DOUBLE_SMALL_RIGHT_CORNER = new Tile(Sprite.RED_DOUBLE_SMALL_RIGHT_CORNER);

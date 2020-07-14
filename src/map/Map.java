@@ -98,6 +98,7 @@ public abstract class Map {
             case 34: return Tile.SECOND_COMPUTER_BLOCK;
             case 35: return Tile.ZEBRA_BLOCK;
             case 36: return Tile.WALL_BLOCK;
+            case 37: return Tile.RED_SPECIAL_DOOR_RIGHT;
 
             default: return Tile.EMPTY;
         }

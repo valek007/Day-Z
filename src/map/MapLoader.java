@@ -61,6 +61,8 @@ public class MapLoader extends Map{
                 case 0xffe5bf41: tileCatalog[i] = Tile.RED_LEFT_DOOR; continue;
                 case 0xffdcad4b: tileCatalog[i] = Tile.RED_RIGHT_DOOR; continue;
                 case 0xffdcb22f: tileCatalog[i] = Tile.RED_SPECIAL_DOOR; continue;
+                case 0xffd6d875: tileCatalog[i] = Tile.RED_SPECIAL_DOOR_RIGHT; continue;
+                case 0xffc8cb2f: tileCatalog[i] = Tile.RED_SPECIAL_DOOR_LEFT; continue;
                 case 0xffe6934c: tileCatalog[i] = Tile.RED_DOUBLE_SMALL_LEFT_CORNER; continue;
                 case 0xffb0642d: tileCatalog[i] = Tile.RED_UP_SMALL_LEFT_CORNER; continue;
                 case 0xff95694a: tileCatalog[i] = Tile.RED_DOUBLE_SMALL_RIGHT_CORNER; continue;
