@@ -12,6 +12,7 @@ public class SpritesSheet {
 
     //-----SpritesSheet Collection-----------------------
     public static SpritesSheet office = new SpritesSheet("/textures/spritesSheet.png", 320, 320);
+    public static SpritesSheet player = new SpritesSheet("/hero/rambo-spritesSheet.png", 192, 192);
 
     //----------------------------------------------
 

@@ -1,17 +1,21 @@
 package entities.creatures;
 
 import control.Keyboard;
+import graphics.Screen;
+import graphics.Sprite;
 
 public class Player extends Creature{
 
     private Keyboard keyboard;
 
-    public Player(Keyboard keyboard) {
+    public Player(Keyboard keyboard, Sprite sprite) {
         this.keyboard = keyboard;
+        this.sprite = sprite;
     }
 
-    public Player(Keyboard keyboard, int postionX, int positionY) {
+    public Player(Keyboard keyboard, Sprite sprite, int postionX, int positionY) {
         this.keyboard = keyboard;
+        this.sprite = sprite;
         this.x = postionX;
         this.y = positionY;
     }
@@ -28,7 +32,7 @@ public class Player extends Creature{
         if(moveX != 0 || moveY != 0) move(moveX,moveY);
     }
 
-    public void draw(){
-
+    public void draw(Screen screen){
+        screen.drawPlayer(x, y, this);
     }
 }

@@ -3,9 +3,6 @@ package entities.creatures;
 import entities.Entitie;
 import graphics.Sprite;
 
-import java.awt.dnd.DropTarget;
-import java.awt.image.WritableRaster;
-
 public abstract class Creature extends Entitie {
 
     protected Sprite sprite;
@@ -33,5 +30,9 @@ public abstract class Creature extends Entitie {
             setX(moveX);
             setY(moveY);
         }
+    }
+
+    public Sprite getSprite(){
+        return sprite;
     }
 }

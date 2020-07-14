@@ -1,6 +1,7 @@
 import control.Keyboard;
 import entities.creatures.Player;
 import graphics.Screen;
+import graphics.Sprite;
 import map.Map;
 import map.MapLoader;
 
@@ -12,8 +13,8 @@ public class Game extends Canvas implements Runnable{
 
     private final static ImageIcon icon = new ImageIcon(Game.class.getResource("/icon/icon.png"));
     private static final long serialVersionUID = 1L;
-    private static final int WIDTH = 800;
-    private static final int HEIGHT = 600;
+    private static final int WIDTH = 600;
+    private static final int HEIGHT = 400;
     private static final String GAME_NAME = "Day-Z";
 
     private static JFrame gameFrame;
@@ -41,7 +42,7 @@ public class Game extends Canvas implements Runnable{
         addKeyListener(keyboard);
 
         map = new MapLoader("/maps/officeMap.png");
-        player = new Player(keyboard);
+        player = new Player(keyboard, Sprite.RAMBO_UP_1, 192, 556);
 
         gameFrame = new JFrame(GAME_NAME);
         gameFrame.setUndecorated(true);
@@ -99,13 +100,13 @@ public class Game extends Canvas implements Runnable{
             return;
         }
 
-        map.draw(player.getX(), player.getY(), screen);
+        map.draw(player.getX() - screen.getWidth()/2 + player.getSprite().getSide()/2, player.getY() - screen.getHeight()/2 + player.getSprite().getSide()/2, screen);
+        player.draw(screen);
 
         System.arraycopy(screen.pixels,0,pixels,0,pixels.length); //Faster way for copy dates from one array in other
         Graphics g = bufferStrategy.getDrawGraphics();
         g.drawImage(image,0,0,getWidth(),getHeight(),null);
         g.setColor(Color.RED);
-        g.fillOval(WIDTH/2,HEIGHT/2,32,32);
         g.drawString(COUNTER_UPS,10,20);
         g.drawString(COUNTER_FPS,10,35);
         g.drawString("x: "+player.getX(), 10,50);
