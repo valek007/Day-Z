@@ -57,14 +57,14 @@ public class Sprite {
     public final static Sprite RAMBO_DOWN_2 = new Sprite(32,0,1,0,SpritesSheet.player);
     public final static Sprite RAMBO_DOWN_3 = new Sprite(32,0,2,0,SpritesSheet.player);
     public final static Sprite RAMBO_UP_1 = new Sprite(32,1,0,0,SpritesSheet.player);
-    public final static Sprite RAMBO_UP_2 = new Sprite(32,0,1,0,SpritesSheet.player);
-    public final static Sprite RAMBO_UP_3 = new Sprite(32,0,2,0,SpritesSheet.player);
+    public final static Sprite RAMBO_UP_2 = new Sprite(32,1,1,0,SpritesSheet.player);
+    public final static Sprite RAMBO_UP_3 = new Sprite(32,1,2,0,SpritesSheet.player);
     public final static Sprite RAMBO_RIGHT_1 = new Sprite(32,2,0,0,SpritesSheet.player);
-    public final static Sprite RAMBO_RIGHT_2 = new Sprite(32,0,1,0,SpritesSheet.player);
-    public final static Sprite RAMBO_RIGHT_3 = new Sprite(32,0,2,0,SpritesSheet.player);
+    public final static Sprite RAMBO_RIGHT_2 = new Sprite(32,2,1,0,SpritesSheet.player);
+    public final static Sprite RAMBO_RIGHT_3 = new Sprite(32,2,2,0,SpritesSheet.player);
     public final static Sprite RAMBO_LEFT_1 = new Sprite(32,3,0,0,SpritesSheet.player);
-    public final static Sprite RAMBO_LEFT_2 = new Sprite(32,0,1,0,SpritesSheet.player);
-    public final static Sprite RAMBO_LEFT_3 = new Sprite(32,0,2,0,SpritesSheet.player);
+    public final static Sprite RAMBO_LEFT_2 = new Sprite(32,3,1,0,SpritesSheet.player);
+    public final static Sprite RAMBO_LEFT_3 = new Sprite(32,3,2,0,SpritesSheet.player);
 
 
     public Sprite(final int side,final int column,final int row,final int version, final SpritesSheet spritesSheet) {
