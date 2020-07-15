@@ -21,54 +21,58 @@ public class Player extends Creature{
         this.y = positionY;
     }
 
-    public void update(){
+    public void update() {
 
         int moveX = 0;
         int moveY = 0;
+        int moveSpeed = 1;
+        int remainder = animation % 40;
 
-        if(animation < 32767) animation++;
+        if (animation < 32767) animation++;
         else animation = 0;
 
-        if(keyboard.up) moveY--;
-        if(keyboard.down) moveY++;
-        if(keyboard.left) moveX--;
-        if(keyboard.right) moveX++;
-        if(moveX != 0 || moveY != 0) {
+        if(keyboard.run) moveSpeed = 2;
+        if (keyboard.up) moveY -= moveSpeed;
+        if (keyboard.down) moveY += moveSpeed;
+        if (keyboard.left) moveX -= moveSpeed;
+        if (keyboard.right) moveX += moveSpeed;
+        if (moveX != 0 || moveY != 0) {
             move(moveX, moveY);
             isMoving = true;
-        }else{
+        } else {
             isMoving = false;
         }
-        if(direction=='n'){
+        if (direction == 'n') {
             sprite = Sprite.RAMBO_UP_1;
-            if(isMoving){
-                if(animation % 30 > 15) sprite = Sprite.RAMBO_UP_2;
+            if (isMoving) {
+                if (animation % 30 > 15) sprite = Sprite.RAMBO_UP_2;
                 else sprite = Sprite.RAMBO_UP_3;
             }
         }
-        if(direction=='s') {
+        if (direction == 's') {
             sprite = Sprite.RAMBO_DOWN_1;
-            if(isMoving){
-                if(animation % 30 > 15) sprite = Sprite.RAMBO_DOWN_2;
+            if (isMoving) {
+                if (animation % 30 > 15) sprite = Sprite.RAMBO_DOWN_2;
                 else sprite = Sprite.RAMBO_DOWN_3;
             }
         }
-        if(direction=='e'){
+        if (direction == 'e') {
             sprite = Sprite.RAMBO_RIGHT_1;
-            if(isMoving){
-                if(animation % 30 > 15) sprite = Sprite.RAMBO_RIGHT_2;
+            if (isMoving) {
+                if (remainder > 10 && remainder <= 20) sprite = Sprite.RAMBO_RIGHT_2;
+                else if (remainder > 20 && remainder <= 30) sprite = Sprite.RAMBO_RIGHT_1;
                 else sprite = Sprite.RAMBO_RIGHT_3;
             }
         }
-        if(direction=='w'){
+        if (direction == 'w') {
             sprite = Sprite.RAMBO_LEFT_1;
-            if(isMoving){
-                if(animation % 30 > 15) sprite = Sprite.RAMBO_LEFT_2;
+            if (isMoving) {
+                if (remainder > 10 && remainder <= 20) sprite = Sprite.RAMBO_LEFT_2;
+                else if (remainder > 20 && remainder <= 30) sprite = Sprite.RAMBO_LEFT_1;
                 else sprite = Sprite.RAMBO_LEFT_3;
             }
         }
     }
-
     public void draw(Screen screen){
         screen.drawPlayer(x, y, this);
     }

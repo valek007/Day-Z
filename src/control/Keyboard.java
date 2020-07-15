@@ -13,6 +13,7 @@ public final class Keyboard implements KeyListener {
     public boolean right;
     public boolean left;
     public boolean escape;
+    public boolean run;
 
     public void update(){
         up = keys[KeyEvent.VK_UP];
@@ -20,6 +21,7 @@ public final class Keyboard implements KeyListener {
         right = keys[KeyEvent.VK_RIGHT];
         left = keys[KeyEvent.VK_LEFT];
         escape = keys[KeyEvent.VK_ESCAPE];
+        run = keys[KeyEvent.VK_SHIFT];
     }
 
     @Override

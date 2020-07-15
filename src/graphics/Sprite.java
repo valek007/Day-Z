@@ -1,5 +1,7 @@
 package graphics;
 
+import java.util.Arrays;
+
 public class Sprite {
     private final int side;
     private int x;
@@ -62,9 +64,11 @@ public class Sprite {
     public final static Sprite RAMBO_RIGHT_1 = new Sprite(32,2,0,0,SpritesSheet.player);
     public final static Sprite RAMBO_RIGHT_2 = new Sprite(32,2,1,0,SpritesSheet.player);
     public final static Sprite RAMBO_RIGHT_3 = new Sprite(32,2,2,0,SpritesSheet.player);
+    public final static Sprite RAMBO_RIGHT_4 = new Sprite(32,2,3,0,SpritesSheet.player);
     public final static Sprite RAMBO_LEFT_1 = new Sprite(32,3,0,0,SpritesSheet.player);
     public final static Sprite RAMBO_LEFT_2 = new Sprite(32,3,1,0,SpritesSheet.player);
     public final static Sprite RAMBO_LEFT_3 = new Sprite(32,3,2,0,SpritesSheet.player);
+    public final static Sprite RAMBO_LEFT_4 = new Sprite(32,3,3,0,SpritesSheet.player);
 
 
     public Sprite(final int side,final int column,final int row,final int version, final SpritesSheet spritesSheet) {
@@ -82,9 +86,7 @@ public class Sprite {
         this.side = side;
         pixels = new int[side * side];
 
-        for (int i = 0; i < pixels.length; i++) {
-            pixels[i] = color;
-        }
+        Arrays.fill(pixels, color);
     }
 
     public int getSide() {
