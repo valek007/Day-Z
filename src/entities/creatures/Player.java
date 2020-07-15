@@ -3,20 +3,21 @@ package entities.creatures;
 import control.Keyboard;
 import graphics.Screen;
 import graphics.Sprite;
+import map.Map;
 
 public class Player extends Creature{
 
     private Keyboard keyboard;
     private int animation;
 
-    public Player(Keyboard keyboard, Sprite sprite) {
+    public Player(Map map, Keyboard keyboard, Sprite sprite) {
+        this.map = map;
         this.keyboard = keyboard;
         this.sprite = sprite;
     }
 
-    public Player(Keyboard keyboard, Sprite sprite, int postionX, int positionY) {
-        this.keyboard = keyboard;
-        this.sprite = sprite;
+    public Player(Map map, Keyboard keyboard, Sprite sprite, int postionX, int positionY) {
+        this(map, keyboard, sprite);
         this.x = postionX;
         this.y = positionY;
     }
@@ -31,7 +32,7 @@ public class Player extends Creature{
         if (animation < 32767) animation++;
         else animation = 0;
 
-        if(keyboard.run) moveSpeed = 2;
+        if(keyboard.run) moveSpeed = 4;
         if (keyboard.up) moveY -= moveSpeed;
         if (keyboard.down) moveY += moveSpeed;
         if (keyboard.left) moveX -= moveSpeed;

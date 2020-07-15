@@ -42,12 +42,12 @@ public class Game extends Canvas implements Runnable{
         addKeyListener(keyboard);
 
         map = new MapLoader("/maps/officeMap2.png");
-        player = new Player(keyboard, Sprite.RAMBO_UP_1, 144, 367);
+        player = new Player(map, keyboard, Sprite.RAMBO_UP_1, 144, 367);
 
         gameFrame = new JFrame(GAME_NAME);
-        gameFrame.setUndecorated(true);
+        //gameFrame.setUndecorated(true);
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gameFrame.setResizable(false);
+        //gameFrame.setResizable(false);
         gameFrame.setIconImage(icon.getImage());
         gameFrame.setLayout(new BorderLayout());
         gameFrame.add(this, BorderLayout.CENTER);

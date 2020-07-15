@@ -10,10 +10,12 @@ public class Tile {
     private int x;
     private int y;
 
+    private boolean solid;
+
     public Sprite sprite;
 
     //-----Tiles Collection--------------------
-    public final static Tile EMPTY = new Tile(Sprite.EMPTY);
+    public final static Tile EMPTY = new Tile(Sprite.EMPTY, true);
     /*
     public final static Tile BLUE_UP_LEFT_CORNER = new Tile(Sprite.BLUE_UP_LEFT_CORNER);
     public final static Tile BLUE_UP_BORDER = new Tile(Sprite.BLUE_UP_BORDER);
@@ -75,18 +77,24 @@ public class Tile {
     public final static Tile SUBWAY_CORNER_RIGHT_IRREGULAR = new Tile(Sprite.SUBWAY_CORNER_RIGHT_IRREGULAR);
     public final static Tile SUBWAY_CORNER_TOP_LEFT_IRREGULAR = new Tile(Sprite.SUBWAY_CORNER_TOP_LEFT_IRREGULAR);
     public final static Tile SUBWAY_CORNER_TOP_RIGHT_IRREGULAR = new Tile(Sprite.SUBWAY_CORNER_TOP_RIGHT_IRREGULAR);
-    public final static Tile SUBWAY_EARTH = new Tile(Sprite.SUBWAY_EARTH);
-    public final static Tile SUBWAY_WALL = new Tile(Sprite.SUBWAY_WALL);
-    public final static Tile SUBWAY_WALL_LEFT = new Tile(Sprite.SUBWAY_WALL_LEFT);
-    public final static Tile SUBWAY_WALL_RIGHT = new Tile(Sprite.SUBWAY_WALL_RIGHT);
-    public final static Tile SUBWAY_WALL_CENTER = new Tile(Sprite.SUBWAY_WALL_CENTER);
-    public final static Tile SUBWAY_DOOR = new Tile(Sprite.SUBWAY_DOOR);
-    public final static Tile SUBWAY_ACCESS_CONTROL = new Tile(Sprite.SUBWAY_ACCESS_CONTROL);
-    public final static Tile SUBWAY_CARTEL = new Tile(Sprite.SUBWAY_CARTEL);
-    public final static Tile SUBWAY_EXTINGUISHER = new Tile(Sprite.SUBWAY_EXTINGUISHER);
+    public final static Tile SUBWAY_EARTH = new Tile(Sprite.SUBWAY_EARTH, true);
+    public final static Tile SUBWAY_WALL = new Tile(Sprite.SUBWAY_WALL, true);
+    public final static Tile SUBWAY_WALL_LEFT = new Tile(Sprite.SUBWAY_WALL_LEFT, true);
+    public final static Tile SUBWAY_WALL_RIGHT = new Tile(Sprite.SUBWAY_WALL_RIGHT, true);
+    public final static Tile SUBWAY_WALL_CENTER = new Tile(Sprite.SUBWAY_WALL_CENTER, true);
+    public final static Tile SUBWAY_DOOR = new Tile(Sprite.SUBWAY_DOOR, true);
+    public final static Tile SUBWAY_ACCESS_CONTROL = new Tile(Sprite.SUBWAY_ACCESS_CONTROL, true);
+    public final static Tile SUBWAY_CARTEL = new Tile(Sprite.SUBWAY_CARTEL, true);
+    public final static Tile SUBWAY_EXTINGUISHER = new Tile(Sprite.SUBWAY_EXTINGUISHER, true);
 
     public Tile(Sprite sprite) {
         this.sprite = sprite;
+        solid = false;
+    }
+
+    public Tile(Sprite sprite, boolean solid) {
+        this.sprite = sprite;
+        this.solid = solid;
     }
 
     //---Tile draws himself------------------------
@@ -94,7 +102,7 @@ public class Tile {
         screen.drawTile(x << 5, y << 5,this);
     }
 
-    public boolean solid(){
-        return false;
+    public boolean isSolid(){
+        return solid;
     }
 }

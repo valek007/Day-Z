@@ -67,4 +67,15 @@ public abstract class Map {
             default: return Tile.EMPTY;
         }
     }
+    public Tile getCatalogTile(int position){
+        return tileCatalog[position];
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
 }
