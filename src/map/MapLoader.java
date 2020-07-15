@@ -1,6 +1,5 @@
 package map;
 
-import graphics.Sprite;
 import map.tile.Tile;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -28,7 +27,7 @@ public class MapLoader extends Map{
         }
     }
 
-    protected void createMap(){
+    /*protected void createMap(){
 
         for (int i = 0; i < pixels.length; i++) {
 
@@ -75,6 +74,42 @@ public class MapLoader extends Map{
                 case 0xff864287: tileCatalog[i] = Tile.WALL_BLOCK; continue;
                 default: tileCatalog[i] = Tile.EMPTY;
 
+            }
+        }
+    }*/
+
+    protected void createMap(){
+
+        for (int i = 0; i < pixels.length; i++) {
+
+            switch (pixels[i]){
+                case 0xffdbd4c0: tileCatalog[i] = Tile.SUBWAY_FLOOR; continue;
+                case 0xff908c83: tileCatalog[i] = Tile.SUBWAY_FLOOR_LEFT; continue;
+                case 0xff605b50: tileCatalog[i] = Tile.SUBWAY_FLOOR_RIGHT; continue;
+                case 0xff7a6737: tileCatalog[i] = Tile.SUBWAY_FLOOR_UP; continue;
+                case 0xff70102a: tileCatalog[i] = Tile.SUBWAY_ENTRY; continue;
+                case 0xffb80987: tileCatalog[i] = Tile.SUBWAY_ENTRY_LEFT; continue;
+                case 0xff873c72: tileCatalog[i] = Tile.SUBWAY_ENTRY_RIGHT; continue;
+                case 0xff283390: tileCatalog[i] = Tile.SUBWAY_CORNER_BOTTOM_LEFT; continue;
+                case 0xff2d356d: tileCatalog[i] = Tile.SUBWAY_CORNER_BOTTOM_RIGHT; continue;
+                case 0xff414593: tileCatalog[i] = Tile.SUBWAY_CORNER_TOP_LEFT; continue;
+                case 0xff1219b5: tileCatalog[i] = Tile.SUBWAY_CORNER_TOP_RIGHT; continue;
+                case 0xff119331: tileCatalog[i] = Tile.SUBWAY_CORNER_TOP_LEFT_WIDE; continue;
+                case 0xff153d1f: tileCatalog[i] = Tile.SUBWAY_CORNER_TOP_RIGHT_WIDE; continue;
+                case 0xffbdab83: tileCatalog[i] = Tile.SUBWAY_CORNER_LEFT_IRREGULAR; continue;
+                case 0xffbda368: tileCatalog[i] = Tile.SUBWAY_CORNER_RIGHT_IRREGULAR; continue;
+                case 0xffd51f50: tileCatalog[i] = Tile.SUBWAY_CORNER_TOP_LEFT_IRREGULAR; continue;
+                case 0xffa72e4e: tileCatalog[i] = Tile.SUBWAY_CORNER_TOP_RIGHT_IRREGULAR; continue;
+                case 0xffb83636: tileCatalog[i] = Tile.SUBWAY_EARTH; continue;
+                case 0xffbea10b: tileCatalog[i] = Tile.SUBWAY_WALL; continue;
+                case 0xff0c367d: tileCatalog[i] = Tile.SUBWAY_WALL_LEFT; continue;
+                case 0xff1a3561: tileCatalog[i] = Tile.SUBWAY_WALL_RIGHT; continue;
+                case 0xffe07821: tileCatalog[i] = Tile.SUBWAY_WALL_CENTER; continue;
+                case 0xff656bbd: tileCatalog[i] = Tile.SUBWAY_DOOR; continue;
+                case 0xff126b0e: tileCatalog[i] = Tile.SUBWAY_ACCESS_CONTROL; continue;
+                case 0xff23d71a: tileCatalog[i] = Tile.SUBWAY_CARTEL; continue;
+                case 0xfffeee9d: tileCatalog[i] = Tile.SUBWAY_EXTINGUISHER; continue;
+                default: tileCatalog[i] = Tile.EMPTY;
             }
         }
     }

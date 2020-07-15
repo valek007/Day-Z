@@ -41,8 +41,8 @@ public class Game extends Canvas implements Runnable{
         keyboard = new Keyboard();
         addKeyListener(keyboard);
 
-        map = new MapLoader("/maps/officeMap.png");
-        player = new Player(keyboard, Sprite.RAMBO_UP_1, 192, 556);
+        map = new MapLoader("/maps/officeMap2.png");
+        player = new Player(keyboard, Sprite.RAMBO_UP_1, 144, 367);
 
         gameFrame = new JFrame(GAME_NAME);
         gameFrame.setUndecorated(true);

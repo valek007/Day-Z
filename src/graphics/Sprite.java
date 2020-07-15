@@ -11,7 +11,7 @@ public class Sprite {
 
     //-----Sprites Collection-----------------------
     public final static Sprite EMPTY = new Sprite(32,0x000000);
-
+    /*
     public final static Sprite BLUE_UP_LEFT_CORNER = new Sprite(32,0,0,0,SpritesSheet.office);
     public final static Sprite BLUE_UP_BORDER = new Sprite(32,1,0,0,SpritesSheet.office);
     public final static Sprite BLUE_UP_RIGHT_CORNER = new Sprite(32,2,0,0,SpritesSheet.office);
@@ -52,6 +52,7 @@ public class Sprite {
     public final static Sprite SECOND_COMPUTER_BLOCK = new Sprite(32,1,4,0,SpritesSheet.office);
     public final static Sprite ZEBRA_BLOCK = new Sprite(32,2,4,0,SpritesSheet.office);
     public final static Sprite WALL_BLOCK = new Sprite(32,0,5,0,SpritesSheet.office);
+     */
 
     //---------------Hero Sprites---------------------
 
@@ -64,12 +65,38 @@ public class Sprite {
     public final static Sprite RAMBO_RIGHT_1 = new Sprite(32,2,0,0,SpritesSheet.player);
     public final static Sprite RAMBO_RIGHT_2 = new Sprite(32,2,1,0,SpritesSheet.player);
     public final static Sprite RAMBO_RIGHT_3 = new Sprite(32,2,2,0,SpritesSheet.player);
-    public final static Sprite RAMBO_RIGHT_4 = new Sprite(32,2,3,0,SpritesSheet.player);
     public final static Sprite RAMBO_LEFT_1 = new Sprite(32,3,0,0,SpritesSheet.player);
     public final static Sprite RAMBO_LEFT_2 = new Sprite(32,3,1,0,SpritesSheet.player);
     public final static Sprite RAMBO_LEFT_3 = new Sprite(32,3,2,0,SpritesSheet.player);
-    public final static Sprite RAMBO_LEFT_4 = new Sprite(32,3,3,0,SpritesSheet.player);
 
+    //------SUBWAY SPRITES-----------------------------------------------------------------------------------------
+
+    public final static Sprite SUBWAY_FLOOR= new Sprite(32,0,0,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_FLOOR_LEFT = new Sprite(32,1,0,2,SpritesSheet.subway);
+    public final static Sprite SUBWAY_FLOOR_RIGHT = new Sprite(32,1,0,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_FLOOR_UP = new Sprite(32,1,0,4,SpritesSheet.subway);
+    public final static Sprite SUBWAY_ENTRY = new Sprite(32,0,1,1,SpritesSheet.subway);
+    public final static Sprite SUBWAY_ENTRY_LEFT = new Sprite(32,1,1,2,SpritesSheet.subway);
+    public final static Sprite SUBWAY_ENTRY_RIGHT = new Sprite(32,1,1,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_CORNER_BOTTOM_LEFT = new Sprite(32,2,0,1,SpritesSheet.subway);
+    public final static Sprite SUBWAY_CORNER_BOTTOM_RIGHT = new Sprite(32,1,1,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_CORNER_TOP_LEFT = new Sprite(32,2,0,3,SpritesSheet.subway);
+    public final static Sprite SUBWAY_CORNER_TOP_RIGHT = new Sprite(32,2,0,1,SpritesSheet.subway);
+    public final static Sprite SUBWAY_CORNER_TOP_LEFT_WIDE = new Sprite(32,2,1,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_CORNER_TOP_RIGHT_WIDE = new Sprite(32,2,1,2,SpritesSheet.subway);
+    public final static Sprite SUBWAY_CORNER_LEFT_IRREGULAR = new Sprite(32,3,0,4,SpritesSheet.subway);
+    public final static Sprite SUBWAY_CORNER_RIGHT_IRREGULAR = new Sprite(32,3,0,7,SpritesSheet.subway);
+    public final static Sprite SUBWAY_CORNER_TOP_LEFT_IRREGULAR = new Sprite(32,3,0,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_CORNER_TOP_RIGHT_IRREGULAR = new Sprite(32,3,0,2,SpritesSheet.subway);
+    public final static Sprite SUBWAY_EARTH = new Sprite(32,3,1,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_WALL = new Sprite(32,4,0,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_WALL_LEFT = new Sprite(32,4,1,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_WALL_RIGHT = new Sprite(32,4,1,2,SpritesSheet.subway);
+    public final static Sprite SUBWAY_WALL_CENTER = new Sprite(32,6,1,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_DOOR = new Sprite(32,7,0,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_ACCESS_CONTROL = new Sprite(32,5,1,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_CARTEL = new Sprite(32,6,0,0,SpritesSheet.subway);
+    public final static Sprite SUBWAY_EXTINGUISHER = new Sprite(32,5,0,0,SpritesSheet.subway);
 
     public Sprite(final int side,final int column,final int row,final int version, final SpritesSheet spritesSheet) {
         this.side = side;
